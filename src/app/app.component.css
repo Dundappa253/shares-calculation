@@ -1,0 +1,19 @@
+  .demo-table {
+    width: 100%;
+  }
+  
+  .demo-button-container {
+    padding-bottom: 16px;
+  }
+  
+  .demo-button + .demo-button {
+    margin-left: 8px;
+    background-color: white
+  }
+
+  th.mat-header-cell {
+    text-align: left;
+    background-color: rgb(12, 101, 156);
+    font-weight: 500;
+    color: white
+}
