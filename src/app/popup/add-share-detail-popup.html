@@ -1,0 +1,23 @@
+<h3 mat-dialog-title>Add Share Detail</h3>
+<div mat-dialog-content>
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+        <div>
+            <mat-form-field class="custom-stype">
+                <mat-label>Number Of Slots</mat-label>
+                <input matInput type="number" placeholder="Number of Slots" formControlName="noOfshares" autocomplete="false">
+            </mat-form-field>
+        </div>
+        <div>
+            <mat-form-field class="custom-stype">
+                <mat-label>Entry Price</mat-label>
+                <input matInput type="number" placeholder="Entry Price" formControlName="entryPrice" autocomplete="false">
+            </mat-form-field>
+        </div>
+        <br>
+        <div >
+            <button type="submit" mat-raised-button class="btn btn-primary">Add</button>&nbsp;&nbsp;&nbsp;
+            <button mat-raised-button cdkFocusInitial (click)="onNoClick()" class="demo-button">Cancel</button>
+        </div>
+    </form>
+
+</div>

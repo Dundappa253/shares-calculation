@@ -1,7 +1,8 @@
-import { Component, ViewChild } from '@angular/core';
-import { MatTable } from '@angular/material/table';
+import { Component, ViewChild, Inject } from '@angular/core';
 import { DataSource } from '@angular/cdk/table';
 import {Observable, ReplaySubject} from 'rxjs';
+import { MatDialog, MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+import {  AddShareDetailPopup } from './popup/add-share-detail-popup';
 
 
 export interface PeriodicElement {
@@ -43,6 +44,26 @@ export class AppComponent {
   dataToDisplay = [...ELEMENT_DATA];
 
   dataSource = new ExampleDataSource(this.dataToDisplay);
+
+  animal: string;
+  name: string;
+
+  constructor(public dialog: MatDialog) {
+    this.animal="";
+    this.name="";
+  }
+
+  openDialog(): void {
+    const dialogRef = this.dialog.open(AddShareDetailPopup, {
+      width: '400px'
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+      this.animal = result;
+    });
+  }
+
 
   addData() {
     const randomElementIndex = Math.floor(Math.random() * ELEMENT_DATA.length);
